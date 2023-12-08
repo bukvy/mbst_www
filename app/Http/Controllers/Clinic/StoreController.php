@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Town;
-use App\Http\Requests\Town\StoreRequest;
+namespace App\Http\Controllers\Clinic;
+use App\Http\Requests\Clinic\StoreRequest;
 
 //use Illuminate\Foundation\Http\FormRequest;
 
 use App\Http\Controllers\Controller;
 //use Illuminate\Http\Request;
-use App\Models\Town;
+use App\Models\Clinic;
 
 class StoreController extends Controller
 {
@@ -18,7 +18,8 @@ class StoreController extends Controller
     {
 
         $data=$request->validated();
-        Town::firstOrCreate($data);
-        return redirect()->route('town.index');
+
+        Clinic::firstOrCreate($data);
+        return redirect()->route('clinic.index');
     }
 }

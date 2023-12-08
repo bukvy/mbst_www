@@ -16,7 +16,6 @@ class StoreController extends Controller
      */
     public function __invoke(StoreRequest $request)
     {
-
         $data=$request->validated();
         Town::firstOrCreate($data);
         return redirect()->route('town.index');
