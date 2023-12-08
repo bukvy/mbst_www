@@ -47,10 +47,14 @@
               </thead>
               <tbody>
                 @foreach($clinics as $clinic)
+                @php
+             
+                $mytown= $towns->where('id', $clinic->town_id)->first();    
+                @endphp
               <tr>
               <td><a href="{{ route('clinic.show',$clinic->id) }}"> {{ $clinic->id }} </a></td>
               <td>{{ $clinic->name }}</td>
-              <td>{{ $clinic->town_id }}</td>
+              <td>{{ $clinic->town_id }}  {{ $mytown->name}}</td>
               <td>{{ $clinic->contacts }}</td>
               <td>{{ $clinic->department }}</td>
               <td>{{ $clinic->addinfo }}</td>
