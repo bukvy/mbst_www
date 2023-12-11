@@ -1,23 +1,23 @@
 <?php
 
-namespace App\Http\Controllers\Town;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Town\UpdateRequest;
+use App\Http\Requests\User\UpdateRequest;
 use Illuminate\Http\Request;
-use App\Models\Town;
+use App\Models\User;
 
 class UpdateController extends Controller
 {
     /**
      * Handle the incoming request.
      */
-    public function __invoke(UpdateRequest $request,Town $town)
+    public function __invoke(UpdateRequest $request,User $user)
     {
         $data=$request->validated();
-        $town->update($data);
+        $user->update($data);
 
-        return view('town.show',compact('town'));
+        return view('user.show',compact('user'));
 
     }
 }

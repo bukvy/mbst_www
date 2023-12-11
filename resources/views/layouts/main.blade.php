@@ -153,7 +153,7 @@
                with font-awesome or any other icon font library -->
 
                <li class="nav-item">
-                <a href="{{-- route('customer.index') --}}" class="nav-link">
+                <a href="{{ route('user.index') }}" class="nav-link">
                   <i class="nav-icon fas fa-address-card"></i>
                   <p>
                    Пользователи
@@ -243,6 +243,7 @@
 <script src="{{ asset('adminlte/dist/js/adminlte.js') }}"></script>
 <script>
 $('.towns').select2()
+$('.clinics').select2()
 </script>
 
 </body>

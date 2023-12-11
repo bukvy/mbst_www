@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Town;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Town;
+use App\Models\User;
 
 class DeleteController extends Controller
 {
     /**
      * Handle the incoming request.
      */
-    public function __invoke(Town $town)
+    public function __invoke(User $user)
     {
-        $town->delete();
+        $user->delete();
 
-        return redirect()->route('town.delete',$town->id);
+        return redirect()->route('user.delete',$user->id);
     }
 }

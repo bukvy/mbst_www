@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Town;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Town;
+use App\Models\User;
 
 class ShowController extends Controller
 {
     /**
      * Handle the incoming request.
      */
-    public function __invoke(Town $town)
+    public function __invoke(User $user)
     {
-        return view('town.show',compact('town'));
+        return view('user.show',compact('user'));
     }
 }

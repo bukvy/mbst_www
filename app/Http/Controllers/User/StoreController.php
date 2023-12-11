@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Town;
-use App\Http\Requests\Town\StoreRequest;
+namespace App\Http\Controllers\User;
+use App\Http\Requests\User\StoreRequest;
 
 //use Illuminate\Foundation\Http\FormRequest;
 
 use App\Http\Controllers\Controller;
 //use Illuminate\Http\Request;
-use App\Models\Town;
+use App\Models\User;
 
 class StoreController extends Controller
 {
@@ -17,7 +17,7 @@ class StoreController extends Controller
     public function __invoke(StoreRequest $request)
     {
         $data=$request->validated();
-        Town::firstOrCreate($data);
-        return redirect()->route('town.index');
+        User::firstOrCreate($data);
+        return redirect()->route('user.index');
     }
 }

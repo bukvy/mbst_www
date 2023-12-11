@@ -54,7 +54,7 @@
               <tr>
               <td><a href="{{ route('clinic.show',$clinic->id) }}"> {{ $clinic->id }} </a></td>
               <td>{{ $clinic->name }}</td>
-              <td>{{ $clinic->town_id }}  {{ $mytown->name}}</td>
+              <td>{{-- $clinic->town_id --}}  {{ $mytown->name}}</td>
               <td>{{ $clinic->contacts }}</td>
               <td>{{ $clinic->department }}</td>
               <td>{{ $clinic->addinfo }}</td>

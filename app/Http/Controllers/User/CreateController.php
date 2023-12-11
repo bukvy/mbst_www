@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Town;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Town;
+use App\Models\User;
+use App\Models\Clinic;
 
 class CreateController extends Controller
 {
@@ -13,6 +14,7 @@ class CreateController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return view('town.create');
+        $clinics=Clinic::all();
+        return view('user.create',compact('clinics'));
     }
 }
