@@ -16,11 +16,13 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/', App\Http\Controllers\HomeController::class)->name('main.index')->middleware('auth');//, 'index']);//->name('home');
 //Route::get('/bus', [App\Http\Controllers\BusSortController::class, 'testsort'])->name('bus');
-Route::get('/', App\Http\Controllers\Main\IndexController::class)->name('main.index');
+//Route::get('/main', App\Http\Controllers\Main\IndexController::class)->name('main.index')->middleware('auth');
+Route::get('/', App\Http\Controllers\Main\IndexController::class)->name('main.index')->middleware('auth');
 
-Route::group(['prefix'=>'towns'],function(){
+Route::prefix('towns')->middleware('auth')->group(function (){
+//Route::group(['prefix'=>'towns'],function(){
     Route::get('/', App\Http\Controllers\Town\IndexController::class)->name('town.index');
     Route::get('/create', App\Http\Controllers\Town\CreateController::class)->name('town.create');
     Route::post('/', App\Http\Controllers\Town\StoreController::class)->name('town.store');
@@ -32,7 +34,8 @@ Route::group(['prefix'=>'towns'],function(){
 
 
 
-Route::group(['prefix'=>'clinics'],function(){
+//Route::group(['prefix'=>'clinics'],function(){
+Route::prefix('clinics')->middleware('auth')->group(function (){
     Route::get('/', App\Http\Controllers\clinic\IndexController::class)->name('clinic.index');
     Route::get('/create', App\Http\Controllers\Clinic\CreateController::class)->name('clinic.create');
     Route::post('/', App\Http\Controllers\Clinic\StoreController::class)->name('clinic.store');
@@ -42,7 +45,8 @@ Route::group(['prefix'=>'clinics'],function(){
     Route::delete('/{clinic}', App\Http\Controllers\Clinic\DeleteController::class)->name('clinic.delete');
 });
 
-Route::group(['prefix'=>'user'],function(){
+//Route::group(['prefix'=>'user'],function(){
+Route::prefix('user')->middleware('auth')->group(function (){    
     Route::get('/', App\Http\Controllers\user\IndexController::class)->name('user.index');
     Route::get('/create', App\Http\Controllers\User\CreateController::class)->name('user.create');
     Route::post('/', App\Http\Controllers\User\StoreController::class)->name('user.store');
