@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Пользователи</h1>
+            <h1 class="m-0">Карты</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -59,7 +59,7 @@
 
                 <tr>
                 <td> {{ $card->id }} </td>
-                <td>{{$card->treatment_number }}</td>
+                <td>{{$card->treatment_name}}</td>
                 <td>{{$card->hours }}</td>
                 <td>{{$myuser->fio }}</td>
                 <td>{{$card->created_at }}</td>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Card;
 use App\Models\User;
 use App\Models\Device;
+use App\Models\Treatment;
 
 use Illuminate\Http\Request;
 
@@ -19,6 +20,7 @@ class IndexController extends Controller
         $cards=Card::all();
         $users=User::all();
         $devices=Device::all();
-        return view('card.index',compact('cards','users','devices'));
+        $treatments=Treatment::all();
+        return view('card.index',compact('cards','users','devices','treatments'));
     }
 }
