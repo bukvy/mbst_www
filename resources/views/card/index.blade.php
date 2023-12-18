@@ -12,7 +12,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item active">Главная</li>
+              <li class="breadcrumb-item active"><a href={{ route('main.index') }}>Главная</a></li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -28,7 +28,7 @@
 
           <div class="col-12">
             <div class="card">
-              <a href="{{ route('card.create') }}" class="btn btn-primary">Добавить</a>
+              {{--<a href="{{ route('card.create') }}" class="btn btn-primary">Добавить</a> --}}
             </div>
 
 
@@ -41,7 +41,7 @@
                 <th>Лечение</th>
                 <th>Часы</th>
                 <th>Доктор</th>
-                <th>Время</th>
+                <th>Время записи</th>
                 <th>Модель  Аппарата</th>
                     </tr>
                 </thead>
@@ -52,14 +52,18 @@
                   $myuser= $users->where('id', $card->user_id)->first();    
                   @endphp
   
-  
+  @php
+               
+  $mydevice= $devices->where('id', 1)->first();    
+  @endphp
+
                 <tr>
                 <td> {{ $card->id }} </td>
                 <td>{{$card->treatment_number }}</td>
                 <td>{{$card->hours }}</td>
                 <td>{{$myuser->fio }}</td>
                 <td>{{$card->created_at }}</td>
-                <td>{{$card->device}}</td>
+                <td>{{ $mydevice->name }}</td>
                 </tr>
                 @endforeach                
                 </tbody>

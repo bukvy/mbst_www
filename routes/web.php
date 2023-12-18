@@ -36,7 +36,7 @@ Route::prefix('towns')->middleware('auth')->group(function (){
 
 //Route::group(['prefix'=>'clinics'],function(){
 Route::prefix('clinics')->middleware('auth')->group(function (){
-    Route::get('/', App\Http\Controllers\clinic\IndexController::class)->name('clinic.index');
+    Route::get('/', App\Http\Controllers\Clinic\IndexController::class)->name('clinic.index');
     Route::get('/create', App\Http\Controllers\Clinic\CreateController::class)->name('clinic.create');
     Route::post('/', App\Http\Controllers\Clinic\StoreController::class)->name('clinic.store');
     Route::get('/{clinic}/edit', App\Http\Controllers\Clinic\EditController::class)->name('clinic.edit');
@@ -47,7 +47,7 @@ Route::prefix('clinics')->middleware('auth')->group(function (){
 
 //Route::group(['prefix'=>'user'],function(){
 Route::prefix('user')->middleware('auth')->group(function (){    
-    Route::get('/', App\Http\Controllers\user\IndexController::class)->name('user.index');
+    Route::get('/', App\Http\Controllers\User\IndexController::class)->name('user.index');
     Route::get('/create', App\Http\Controllers\User\CreateController::class)->name('user.create');
     Route::post('/', App\Http\Controllers\User\StoreController::class)->name('user.store');
     Route::get('/{user}/edit', App\Http\Controllers\User\EditController::class)->name('user.edit');
@@ -57,17 +57,8 @@ Route::prefix('user')->middleware('auth')->group(function (){
 });
 
 
+Route::get('/card/index', App\Http\Controllers\Card\IndexController::class)->name('card.index');
 
 
 
-/*
-Route::group(['prefix'=>'customers'],function(){
-    Route::get('/', App\Http\Controllers\Customer\IndexController::class)->name('customer.index');
-    Route::get('/create', App\Http\Controllers\Customer\CreateController::class)->name('customer.create');
-    Route::post('/', App\Http\Controllers\Customer\StoreController::class)->name('customer.store');
-    Route::get('/{customer}/edit', App\Http\Controllers\Customer\EditController::class)->name('customer.edit');
-    Route::get('/{customer}', App\Http\Controllers\Customer\ShowController::class)->name('customer.show');
-    Route::patch('/{customer}', App\Http\Controllers\Customer\UpdateController::class)->name('customer.update');
-    Route::delete('/{customer}', App\Http\Controllers\Customer\DeleteController::class)->name('customer.delete');
-});
-*/
+
