@@ -54,7 +54,7 @@
   
   @php
                
-  $mydevice= $devices->where('id', 1)->first();    
+  $mydevice= $devices->where('id', $card->device)->first();    
   @endphp
 
                 <tr>
