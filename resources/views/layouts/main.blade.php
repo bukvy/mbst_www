@@ -198,6 +198,7 @@
 <script>
 $('.towns').select2()
 $('.clinics').select2()
+$('.permissions').select2()
 </script>
 
 </body>
