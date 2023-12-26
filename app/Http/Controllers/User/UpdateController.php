@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\User\UpdateRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
+//use App\Models\Clinic;
 
 class UpdateController extends Controller
 {
@@ -14,10 +15,12 @@ class UpdateController extends Controller
      */
     public function __invoke(UpdateRequest $request,User $user)
     {
+
         $data=$request->validated();
+//        dd($data);
         $user->update($data);
+        return redirect()->route('user.show', [$user]);
 
-        return view('user.show',compact('user'));
-
+ 
     }
 }

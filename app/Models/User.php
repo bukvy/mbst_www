@@ -25,6 +25,7 @@ class User extends Authenticatable
         'contacts',
         'phone',
         'clinic_id',
+        'permission',
     ];
 
     /**

@@ -17,14 +17,14 @@ class ShowController extends Controller
     {
 //        $towns=Town::all();
         $clinics=Clinic::all();
-        $permissionstr="";
+        $permissionstr="Блокировка ";
         $permissions=config('permissions.bits');
         foreach(array_keys($permissions) as $key){
             if($key & $user->permission){
             $permissionstr.="+".  $permissions[$key];
             }
         }
-        $permissionstr=preg_replace("/^\+/", " ",$permissionstr);
+        $permissionstr=preg_replace("/^Блокировка \+/", " ",$permissionstr);
 
  //       dd($permissions,$user->permission, $permissionstr);
         return view('user.show',compact('user','clinics','permissionstr'));
